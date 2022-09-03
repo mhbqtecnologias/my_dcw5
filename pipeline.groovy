@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-		registry = "marcioholanda/app-dcw5"
-        registryCredential = "dockerhub_id" 
+		registry = "marcioholanda/app-dcw5" // ALTERAR
+        registryCredential = "dockerhub_id"
         dockerImage = ''
     }
 
     stages {
     	stage('Clone Repository') {
     		steps {  
-                git branch: "main", url: 'https://gitlab.com/mhbqtecnologias1/my_dcw5.git'
+                git branch: "main", url: 'https://gitlab.com/mhbqtecnologias1/my_dcw5.git' // ALTERAR
 			}
     	}
     	stage('Build Docker Image') {
@@ -21,22 +21,6 @@ pipeline {
             }
         }
     	stage('Send image to Docker Hub') {
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-    	stage('Cleaning up') {
-        	steps {
-            	sh "docker rmi $registry:develop"
-        	}
-		}
-    }
-}
-stage('Send image to Docker Hub') {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential) {
@@ -75,3 +59,5 @@ stage('Send image to Docker Hub') {
             	sh "docker rmi $registry:develop"
         	}
 		}
+    }
+}
