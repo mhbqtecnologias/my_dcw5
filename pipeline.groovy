@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-		registry = "marcioholanda/app-dcw5" // ALTERAR
+		registry = "marcioholanda/app-dcw5"
         registryCredential = "dockerhub_id"
         dockerImage = ''
     }
@@ -10,7 +10,7 @@ pipeline {
     stages {
     	stage('Clone Repository') {
     		steps {  
-                git branch: "main", url: 'https://gitlab.com/mhbqtecnologias1/my_dcw5.git' // ALTERAR
+                git branch: "main", url: 'https://gitlab.com/mhbqtecnologias1/my_dcw5.git'
 			}
     	}
     	stage('Build Docker Image') {
@@ -33,11 +33,11 @@ pipeline {
 		    steps{
                 step([$class: 'AWSCodeDeployPublisher',
                     applicationName: 'myappcodeploy',
-                    awsAccessKey: "AKIATTYCTNZOH23WO4NN", // ALTERAR
-                    awsSecretKey: "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", // ALTERAR
+                    awsAccessKey: "AKIATTYCTNZOH23WO4NN",
+                    awsSecretKey: "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",
                     credentials: 'awsAccessKey',
                     deploymentGroupAppspec: false,
-                    deploymentGroupName: 'groupcodeployapp', // ALTERAR
+                    deploymentGroupName: 'groupcodeployapp',
                     deploymentMethod: 'deploy',
                     excludes: '',
                     iamRoleArn: '',
@@ -46,8 +46,8 @@ pipeline {
                     pollingTimeoutSec: 600,
                     proxyHost: '',
                     proxyPort: 0,
-                    region: 'us-east-1', // CHECAR
-                    s3bucket: 'dcw5-s3bucket', // ALTERAR
+                    region: 'us-east-1',
+                    s3bucket: 'dcw5-s3bucket',
                     s3prefix: '', 
                     subdirectory: '',
                     versionFileName: '',
