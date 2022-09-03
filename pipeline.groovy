@@ -74,6 +74,4 @@ stage('Send image to Docker Hub') {
         	steps {
             	sh "docker rmi $registry:develop"
         	}
-		    }
-    }
-}
+		}
