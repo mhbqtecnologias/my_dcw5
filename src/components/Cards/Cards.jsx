@@ -21,7 +21,7 @@ const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate }}) => {
                             <CountUp start={0} end={confirmed.value} duration={2.5} separator="," />
                             </Typography>
                             <Typography color = "initial"> {new Date(lastUpdate).toDateString()}</Typography>
-                            <Typography color = "textPrimary" variant = "body2"> Numero de casos ativos</Typography>
+                            <Typography color = "textPrimary" variant = "body2"> Numero de casos ATIVOS</Typography>
                         </CardContent>
                     </Grid>
                     <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
@@ -31,17 +31,17 @@ const Cards = ({ data: {confirmed, recovered, deaths, lastUpdate }}) => {
                                 <CountUp start={0} end={recovered.value} duration={2.5} separator="," />
                             </Typography>
                             <Typography color = "inherit"> {new Date(lastUpdate).toDateString()}</Typography>
-                            <Typography variant = "body2"> Numero de casos Recuperados</Typography>
+                            <Typography variant = "body2"> Numero de casos SALVOS</Typography>
                         </CardContent>
                     </Grid>
                     <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
                         <CardContent>
-                            <Typography variant = "h5" color = "secondary" gutterBottom> Mortes</Typography>
+                            <Typography variant = "h5" color = "secondary" gutterBottom> DEADS</Typography>
                             <Typography variant = "h5">
                                 <CountUp start={0} end={deaths.value} duration={2.5} separator="," />
                             </Typography>
                             <Typography color = "inherit"> {new Date(lastUpdate).toDateString()}</Typography>
-                            <Typography color = "secondary" variant = "body2"> Numero de mortos</Typography>
+                            <Typography color = "secondary" variant = "body2"> Numero de DEADS</Typography>
                         </CardContent>
                     </Grid>
                 </Grid>
